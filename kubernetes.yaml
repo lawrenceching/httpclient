@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpclient
+  labels:
+    app: httpclient
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: httpclient
+  template:
+    metadata:
+      labels:
+        app: httpclient
+    spec:
+      containers:
+        - name: httpclient
+          image: lawrenceching/github-issue-istio-36699:latest
+          command:
+            - sleep
+            - "360d"
